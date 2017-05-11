@@ -1,9 +1,6 @@
 To run:
 
-1. Run on Heroku : 
-	Enter ______________________________ on your browser
-
-2. Run on local db:
+Run on local db:
 	Clone or download from gitHub.
 	File is at link: https://github.com/sohaibahmad759/createes.git
 	In the directory with all the files and package.json, run the following commands:
