@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>CreaTees - Let Your Imagination Go Wild</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="Responsive HTML5 E-Commerce Template" />
+        <meta name="keywords" content="responsive html5 template, e-commerce, shop, bootstrap 3.0, css, jquery, flat, modern" />
+        <meta name="author" content="8Guild" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!--Master Slider Styles-->
+    <link href="./masterslider/style/masterslider.css" rel="stylesheet" media="screen">
+    <!--Styles-->
+    <link href="./css/styles.css" rel="stylesheet" media="screen">
+    <!--Color Scheme-->
+    <link class="color-scheme" href="./css/colors/color-default.css" rel="stylesheet" media="screen">
+    <!--Color Switcher-->
+    <link href="./color-switcher/color-switcher.css" rel="stylesheet" media="screen">
+    <!--Modernizr-->
+        <script src="./js/libs/modernizr.custom.js"></script>
+
+
+
+    <link rel="stylesheet" href="app.css"/>
+    <link rel="icon"
+    type="image/png"
+    href="./img/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body ng-controller="AppController as appCtrl">
+     <div class="color-switcher group animated">
+
+      <div class="color">
+        <a style="background-color: #607d8b;" class="current" href="#" data-color="default"></a>
+        <span>#607d8b</span>
+      </div>
+
+      <div class="color">
+        <a style="background-color: #ff5722;" href="#" data-color="scheme2"></a>
+        <span>#ff5722</span>
+      </div>
+
+      <div class="color">
+        <a style="background-color: #e91e63;" href="#" data-color="scheme3"></a>
+        <span>#e91e63</span>
+      </div>
+
+      <div class="color">
+        <a style="background-color: #ff9016;" href="#" data-color="scheme4"></a>
+        <span>#ff9016</span>
+      </div>
+
+      <div class="color">
+        <a style="background-color: #8bc34a;" href="#" data-color="scheme5"></a>
+        <span>#8bc34a</span>
+      </div>
+
+      <div class="color">
+        <a style="background-color: #03a9f4;" href="#" data-color="scheme6"></a>
+        <span>#03a9f4</span>
+      </div>
+
+    </div><!--Color Switcher End-->
+
+    
+
+    <div ui-view></div>
+    <section class="hero-slider">
+        <div class="master-slider" id="hero-slider">
+        
+            <!--Slide 1-->
+            <div class="ms-slide" data-delay="7">
+            <div class="overlay"></div>
+            <!-- <img src="masterslider/blank.gif" data-src="img/hero/slideshow/slide_1.jpg" alt=""/> -->
+            <img src="masterslider/blank.gif" data-src="masterslider/slide3.jpg" alt=""/>
+            <!-- <h2 style="width: 456px; left: 110px; top: 110px;" class="createes-primary ms-layer" data-effect="top(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Look for all bags at our shop!</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="createes-primary ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">In this slider (which works both on touch screen and desktop devices) you can change the title, the description and button texts. It's all that you need to demonstrate your top rated products. </p> -->
+            <div style="left: 360px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="500" data-delay="750" data-ease="easeOutQuad"><a class="btn btn-black" href="catalog.html">Go to catalog</a></div>
+            <!-- <button class="btn btn-primary">Add to Cart</button> -->
+            <div style="left: 585px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="700" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="browse.html">Browse all</a></div>
+          </div>
+          
+            <!--Slide 2-->
+            <div class="ms-slide" data-delay="7">
+            <span class="overlay"></span>
+            <img src="masterslider/blank.gif" data-src="masterslider/slide3.jpg" alt="Necessaire"/>
+            <!-- <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Necessaire</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">In this slider (which works both on touch screen and desktop devices) you can change the title, the description and button texts. It's all that you need to demonstrate your top rated products. </p> -->
+            <div style="left: 360px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="500" data-delay="750" data-ease="easeOutQuad"><a class="btn btn-black" href="catalog.html">Go to catalog</a></div>
+            <div style="left: 585px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="700" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#">Browse all</a></div>
+          </div>
+          
+            <!--Slide 3-->
+            <div class="ms-slide" data-delay="7">
+            <div class="overlay"></div>
+            <img src="masterslider/blank.gif" data-src="masterslider/slide3.jpg" alt="Crescent"/>
+            <!-- <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Crescent</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color stroke ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">In this slider (which works both on touch screen and desktop devices) you can change the title, the description and button texts. It's all that you need to demonstrate your top rated products. </p> -->
+            <div style="left: 360px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="500" data-delay="750" data-ease="easeOutQuad"><a class="btn btn-black" href="#">Go to catalog</a></div>
+            <div style="left: 585px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="700" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#">Browse all</a></div>
+          </div>
+          
+        </div>
+      </section>
+    <script src="color-switcher/color-switcher.js"></script>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.11/fabric.min.js"></script>
+    <script src="./js/libs/jquery-1.11.1.min.js"></script>
+    <script src="./js/libs/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="./js/libs/jquery.easing.min.js"></script>
+    <script src="./js/plugins/bootstrap.min.js"></script>
+    <script src="./js/plugins/smoothscroll.js"></script>
+    <script src="./js/plugins/jquery.validate.min.js"></script>
+    <script src="./js/plugins/icheck.min.js"></script>
+    <script src="./js/plugins/jquery.placeholder.js"></script>
+    <script src="./js/plugins/jquery.stellar.min.js"></script>
+    <script src="./js/plugins/jquery.touchSwipe.min.js"></script>
+    <script src="./js/plugins/jquery.shuffle.min.js"></script>
+<script src="./js/plugins/lightGallery.min.js"></script>
+<script src="./js/plugins/owl.carousel.min.js"></script>
+<script src="./js/plugins/masterslider.min.js"></script>
+<script src="./js/plugins/jquery.nouislider.min.js"></script>
+    <!-- <script src="./js/scripts.js"></script> -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>

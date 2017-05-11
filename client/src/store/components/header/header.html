@@ -1,0 +1,111 @@
+<!--Header-->
+    <header data-offset-top="500" data-stuck="600"><!--data-offset-top is when header converts to small variant and data-stuck when it becomes visible. Values in px represent position of scroll from top. Make sure there is at least 100px between those two values for smooth animation-->
+    
+      <!--Search Form-->
+      <form class="search-form closed" method="get" role="form" autocomplete="off">
+        <div class="container">
+          <div class="close-search"><i class="icon-delete"></i></div>
+            <div class="form-group">
+              <label class="sr-only" for="search-hd">Search for product</label>
+              <input type="text" class="form-control" name="search-hd" id="search-hd" placeholder="Search for product">
+              <button type="submit"><i class="icon-magnifier"></i></button>
+          </div>
+        </div>
+      </form>
+      
+        <!--Mobile Menu Toggle-->
+      <div class="menu-toggle"><i class="fa fa-list"></i></div>
+
+      <div class="container">
+        <a class="logo" href="index.html"><img src="img/logo-default.png" alt="Limo"/></a>
+      </div>
+      
+      <!--Main Menu-->
+      <nav class="menu">
+        <div class="container">
+          
+          <ul class="main">
+            <li class="hide-sm"><a href="index.html"><span>H</span>ome</a></li>
+            <li class="hide-sm"><a ui-sref="store.design"><span>D</span>esign</a></li>
+            <!-- <a ui-sref="store.design">Design</a> -->
+
+            <!-- <li class="has-submenu"><a href="#"><span>D</span>esign<i class="fa fa-chevron-down"></i></a>
+                <ul class="submenu">
+                <li><a href="design1.html">T-shirts</a></li>
+                <li><a href="design2.html">Mugs</a></li>
+                <li><a href="design3.html">Keychains</a></li>
+                <li><a href="design4.html">Phonecovers</a></li>
+              </ul>
+            </li> -->
+            <!-- <li class="has-submenu"><a href="trending.html"><span>T</span>rending<i class="fa fa-chevron-down"></i></a> -->
+            </li>
+            <li class="hide-sm"><a ui-sref="store.support"><span>S</span>upport</a></li>
+            <li class="hide-sm"><a ui-sref=""><span>      </span>    </a></li>
+            <li class="hide-sm"><a ui-sref=""><span></span></a></li>
+            
+            
+            <!-- <span> </span>US</a></li> -->
+          </ul>
+        </div>
+
+        <div class="catalog-block">
+          <div class="container">
+            <ul class="catalog">
+              <li class="has-submenu"><a href=""><i class="fa fa-chevron-down"></i></a>
+             <!--  <li><a href="mugs.html">Mugs</a></li>
+              <li><a href="keychains.html">Keychains</a></li>
+              <li><a href="phonecovers.html">Phone covers</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      
+      <div class="toolbar-container">
+        <div class="container">  
+          <!--Toolbar-->
+          <div class="toolbar group">
+            
+            <div class="header-cart navbar-nav">
+                <btn class="btn btn-default" ui-sref="store.cart" href="#/cart/">
+                    <span class="header-cart__title">Shopping cart</span>
+                    <!-- ngIf: !headerCtrl.cart.items.length --><span class="label label-info ng-scope" ng-if="!headerCtrl.cart.items.length">is empty </span><!-- end ngIf: !headerCtrl.cart.items.length -->
+                    <!-- ngIf: headerCtrl.cart.items.length -->
+                </btn>
+            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li ng-if="!headerCtrl.isAuthenticated()">
+                    <a ui-sref="auth.login">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        <span  style="font-size: 15px;" class="bordered-right">Login</span>
+                    </a>
+                </li>
+                <li ng-if="!headerCtrl.isAuthenticated()">
+                    <a ui-sref="auth.register">
+                        <span class="glyphicon glyphicon-check"></span>
+                        <span   style="font-size: 15px;">Register</span></a>
+                </li>
+                <li ng-if="headerCtrl.isAuthenticated()">
+                    <a ng-click="headerCtrl.transitionToDashboard()" class="header-user__name">
+                        <span class="header-user__avatar" ng-if="headerCtrl.user">
+                            <img ng-src="images/users/32/{{headerCtrl.user.image[0]}}"/>
+                        </span>
+
+                        <span class="glyphicon glyphicon-user" ng-if="!headerCtrl.user"></span>
+                        <span class="bordered-right">{{ headerCtrl.user.username }}</span>
+                    </a>
+                </li>
+                <li ng-if="headerCtrl.isAuthenticated()">
+                    <a href="#" ng-click="headerCtrl.logOut()">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+          </div><!--Toolbar Close-->
+        </div>
+      </div>
+    </header><!--Header Close-->
+
+<!-- Navigation -->

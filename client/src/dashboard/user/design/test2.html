@@ -1,0 +1,75 @@
+
+    <form enctype="multipart/form-data" name="form" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+        <div class="col-xs-12">
+            <h2>Add a new item</h2>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <label>Image</label>
+            <div class="thumbnail drag-drop-field ng-pristine ng-untouched ng-valid" ngf-drop="" ngf-select="" ngf-multiple="true" ngf-drag-over-class="dragover" ng-model="itemsCtrl.item.files" name="files" accept="image/*" ngf-max-size="2MB">
+                <span ng-hide="itemsCtrl.item.files" class="drag-drop-field__message">
+                    <i class="glyphicon glyphicon-download-alt"></i>
+                    <p>Drag &amp; Drop, or click to download.</p>
+                </span>
+
+                <div class="images-preview images-preview_local">
+                    <!-- ngRepeat: file in itemsCtrl.item.files -->
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-md-5">
+            <div class="form-group">
+                <label for="ItemTitle">Title</label>
+                <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" id="ItemTitle" placeholder="Title" ng-model="itemsCtrl.item.title" required="" type="text">
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="ItemPrice">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" id="ItemPrice" placeholder="Price" ng-model="itemsCtrl.item.price" required="" type="number">
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-6">
+                    <label>Category</label>
+                    <div class="store-dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="categorySelector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span ng-show="itemsCtrl.item.category" class="ng-binding ng-hide"> </span>
+                            <span ng-hide="itemsCtrl.item.category" class="">Select category</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="categorySelector">
+                            <!-- ngRepeat: category in itemsCtrl.categories track by $index --><li ng-repeat="category in itemsCtrl.categories track by $index" class="ng-scope">
+                                <a ng-click="itemsCtrl.selectCategory(category.name)" class="ng-binding">T-shirt</a>
+                            </li><!-- end ngRepeat: category in itemsCtrl.categories track by $index --><li ng-repeat="category in itemsCtrl.categories track by $index" class="ng-scope">
+                                <a ng-click="itemsCtrl.selectCategory(category.name)" class="ng-binding">Mobile Covers</a>
+                            </li><!-- end ngRepeat: category in itemsCtrl.categories track by $index -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="col-xs-12 col-md-4">
+            <div class="form-group">
+                <label for="ItemDescription">Description</label>
+                <textarea class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" id="ItemDescription" rows="5" placeholder="Description" ng-model="itemsCtrl.item.description" required=""></textarea>
+            </div>
+            <button type="submit" ng-disabled="!form.$valid" class="btn btn-primary" ng-click="itemsCtrl.addItem()" disabled="disabled">Add item</button>
+        </div>
+        <div class="col-xs-12 ng-hide" ng-show="itemsCtrl.message.length">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Error occured</h3>
+                </div>
+                <div class="panel-body ng-binding">
+                    
+                </div>
+            </div>
+        </div>
+    </form>

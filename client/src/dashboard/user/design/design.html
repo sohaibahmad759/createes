@@ -1,0 +1,240 @@
+<script>
+console.log('came here');
+</script>
+
+
+
+<h1 class="page-header"><i class="fa fa-fax"></i> T-shirt Design</h1>
+<style>
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#header,
+#footer {
+    min-height: 15px;
+}
+.logo{
+	height: 50px
+}
+.row{
+    overflow: hidden; 
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+/* layout */
+#main-wrap {
+     /*overflow to handle inner floating block */
+    overflow: hidden;
+}
+
+#sidebar {
+    float: left;
+    width: 70%;
+}
+
+#content-wrap {
+    float: right;
+    width: 30%;
+}
+
+.color-box {
+   width: 20px; height: 20px; margin-left: 30px; border: solid 1px
+}
+</style>
+
+<img src="./img/shirts/black.jpg" id ="black-t" hidden>
+
+<!-- TODO: Customize code -->
+<!-- <div> hello </div> -->
+
+<div class="row"><br></div>
+<div class="row">
+
+<div class="col-xs-5">
+  <div style="width: 500px; height: 500px; position: relative; background-color: rgb(255, 255, 255);">
+  	<img id="editingShirt" src="./img/shirts/white.jpg"></img>
+  	<div id="drawingArea" style="position: absolute; top: 100px;left: 150px;width: 200px; height: 350px;">					
+  		<canvas id="canvas1" width=200 height="350" class="hover""></canvas>
+  	</div>
+  </div>
+</div>
+
+<div class="col-xs-1">
+  <div id="blackCol" style="background-color: #000000;" class="color-box"></div>
+  <div id="whiteCol" style="background-color: #ffffff;" class="color-box"></div>
+  <div id="cyanCol" style="background-color: #034f4f;" class="color-box"></div>
+  <div id="yellowCol" style="background-color: #bebe00;" class="color-box"></div>
+  <div id="blueCol" style="background-color: #03024e;" class="color-box"></div>
+  <div id="redCol" style="background-color: #940a00;" class="color-box"></div>
+  <div id="purpleCol" style="background-color: #50044f;" class="color-box"></div>
+  <div id="greenCol" style="background-color: #014d03;" class="color-box"></div>
+</div>
+
+<!-- <div class="row"> -->
+<!-- <div> -->
+<div class="col-xs-6">
+  
+
+  <input type="text" id="textToAdd">
+  <button id="addText">Add text</button>
+  <button id="removeButton">Remove</button>
+
+  <button id="downloadCanvas">Download</button>
+  <button id="uploadImg">Upload Image</button>
+  <br><br>
+  <div class="form-group">
+    <!-- <label for="ItemTitle">Title</label> -->
+    <input type="text"
+           class="form-control"
+           id="ItemTitle"
+           placeholder="Title"
+           ng-model="item.title"
+           required>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="addItem()">Submit</button>
+</div>
+
+</div>
+
+<!--   <div class="form-group">
+                <label for="ItemTitle">Title</label>
+                <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" id="ItemTitle" placeholder="Title" ng-model="DesignCtrl.item.title" required="" type="text">
+</div>
+
+<button type="submit"
+                    ng-disabled="!form.$valid"
+                    class="btn btn-primary"
+                    ng-click="DesignCtrl.addItem()">Add item</button> -->
+
+
+<div class="row">
+    <!-- <h1> HELLLO</h1> -->
+    
+</div>
+
+
+
+
+<!-- <button id="loadFromJSON">Load from JSON</button> -->
+
+<!-- <input type="file" id="file"> -->
+
+<script>
+console.log('came inside script');
+var canvas = new fabric.Canvas('canvas1');
+
+var imgElement1 = document.getElementById('black-t');
+var imgInstance1 = new fabric.Image(imgElement1, {
+  opacity: 1
+});
+canvas.add(imgInstance1);
+
+document.getElementById('addText').onclick = function() {
+    var text = document.getElementById("textToAdd").value;
+    var textSample = new fabric.Text(text, {
+      left: fabric.util.getRandomInt(0, 190),
+      top: fabric.util.getRandomInt(0, 340),
+      fontFamily: 'helvetica',
+      angle: 0,
+      fill: '#000000',
+      scaleX: 0.5,
+      scaleY: 0.5,
+      fontWeight: '',
+        hasRotatingPoint:true
+    });         
+    canvas.add(textSample); 
+    // canvas.item(canvas.item.length-1).hasRotatingPoint = true;    
+    // $("#texteditor").css('display', 'block');
+    // $("#imageeditor").css('display', 'block');
+};
+
+document.getElementById('removeButton').onclick = function() {
+    var obj = canvas.getActiveObject();
+    canvas.remove(obj);
+};
+
+document.getElementById('blackCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/black.jpg';
+    console.log('black set');
+};
+
+document.getElementById('whiteCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/white.jpg';
+    console.log('white set');
+};
+
+document.getElementById('cyanCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/cyan.jpg';
+    console.log('cyan set');
+};
+
+document.getElementById('yellowCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/yellow.jpg';
+};
+
+document.getElementById('blueCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/blue.jpg';
+};
+
+document.getElementById('redCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/red.jpg';
+};
+
+document.getElementById('purpleCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/purple.jpg';
+};
+
+document.getElementById('greenCol').onclick = function() {
+    document.getElementById('editingShirt').src = './img/shirts/green.jpg';
+};
+
+var jsonObj;
+
+function saveImage(e) {
+    this.href = canvas.toDataURL({
+        format: 'png',
+        quality: 0.8
+    });
+    this.download = 'canvas.png'
+    var image=canvas.toDataURL('png')
+    // window.open(canvas.toDataURL('png'));
+    var canvasBase64 = canvas.toDataURL('png').replace(/data\:image\/png;base64,/, '');
+    console.log('data in base 64');
+    console.log(canvasBase64);
+    // jsonObj = canvas.toJSON();
+    // jsonObj = JSON.stringify(canvas);
+    // console.log(jsonObj);
+}
+
+// var imageSaver = document.getElementById('downloadCanvas');
+// imageSaver.addEventListener('click', saveImage, false);
+
+// document.getElementById('loadFromJSON').onclick = function () {
+//  canvas.loadFromJSON(jsonObj);
+//  console.log('printing json');
+//  console.log(jsonObj);
+// };
+
+
+
+document.getElementById('file').addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function (f) {
+        var data = f.target.result;                    
+        fabric.Image.fromURL(data, function (img) {
+            var oImg = img.set({left: 0, top: 0, angle: 00,width:100, height:100}).scale(0.9);
+            canvas.add(oImg).renderAll();
+            var a = canvas.setActiveObject(oImg);
+            var dataURL = canvas.toDataURL({format: 'png', quality: 0.8});
+        });
+    };
+    reader.readAsDataURL(file);
+});
+
+</script>
